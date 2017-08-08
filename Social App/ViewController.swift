@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     }
     //END FACEBOOK
     
-    //EMAIL AUTH
+    //EMAIL AUTHENTICATION
     @IBAction func signInBtn(_ sender: UIButton) {
         
         if let email = emailField.text, let password = passwordField.text {
