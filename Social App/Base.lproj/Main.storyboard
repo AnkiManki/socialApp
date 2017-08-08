@@ -35,7 +35,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.071386717259883881" green="0.065955899655818939" blue="0.082153104245662689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="U5M-Pt-MDR" firstAttribute="trailing" secondItem="0Om-JL-OBx" secondAttribute="trailingMargin" id="9fK-Ni-4Yx"/>
                                     <constraint firstAttribute="bottom" secondItem="U5M-Pt-MDR" secondAttribute="bottom" constant="42" id="bB5-ma-0dv"/>
@@ -61,6 +61,9 @@
                                     <constraint firstAttribute="height" constant="65" id="gg7-v6-xjt"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="fb"/>
+                                <connections>
+                                    <action selector="fbButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tc3-1M-rL8"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q6Q-Oy-5oL">
                                 <rect key="frame" x="40" y="362.5" width="295" height="138"/>
@@ -79,7 +82,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3g-YN-hIV">
                                         <rect key="frame" x="0.0" y="102" width="295" height="36"/>
-                                        <color key="backgroundColor" red="1" green="0.52156862749999999" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12624785304069519" green="0.69192302227020264" blue="0.34120380878448486" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

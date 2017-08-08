@@ -7,34 +7,46 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 import FBSDKLoginKit
+import Firebase
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
-
-    //Facebook imnplementation
+class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loginButton = FBSDKLoginButton()
-        view.addSubview(loginButton)
-        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
+    }
+
+    @IBAction func fbButton(_ sender: UIButton) {
         
-        loginButton.delegate = self
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Logged out")
-    }
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if error != nil {
-            print(error)
-            return
+        let facebookLogin = FBSDKLoginManager()
+        facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            if error != nil {
+                print("Cannot login with facebook")
+            } else if result?.isCancelled == true {
+                print("Canceled")
+            } else {
+                print("Success with facebook")
+                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                self.firebaseAuth(credential)
+            }
         }
-        print("Successfully logged in with FB")
 
     }
+    
+    func firebaseAuth(_ credential: AuthCredential){
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if error != nil {
+                print("Unable to auth with firebase")
+            } else {
+                print("Success with firebase")
+            }
+        }
+        
+    }
+  
+
 
 
 
