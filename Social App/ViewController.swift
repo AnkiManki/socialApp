@@ -17,7 +17,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
+    
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
+    
+    //FACEBOOK
     @IBAction func fbButton(_ sender: UIButton) {
         
         let facebookLogin = FBSDKLoginManager()
@@ -32,7 +37,7 @@ class ViewController: UIViewController {
                 self.firebaseAuth(credential)
             }
         }
-
+        
     }
     
     func firebaseAuth(_ credential: AuthCredential){
@@ -45,10 +50,36 @@ class ViewController: UIViewController {
         }
         
     }
-  
-
-
-
-
+    //END FACEBOOK
+    
+    //EMAIL AUTH
+    @IBAction func signInBtn(_ sender: UIButton) {
+        
+        if let email = emailField.text, let password = passwordField.text {
+            
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                if error == nil {
+                    
+                    print("Email auth - firebase")
+                } else {
+                    
+                    Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                        if error != nil {
+                            print("Unable to auth with firebase with email")
+                        } else {
+                            print("User loged in with email - firebase")
+                        }
+                    })
+                }
+            })
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
 }
 
