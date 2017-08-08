@@ -32,9 +32,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             print(error)
             return
         }
-        
         print("Successfully logged in with FB")
-        
+
     }
 
 
